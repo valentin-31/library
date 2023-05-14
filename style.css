@@ -1,0 +1,77 @@
+/* The button to add a book*/
+.addBookButton {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 40%;    
+    width: 280px;
+}
+
+/* The form that is displayed */
+.bookForm {
+    display: none;  
+    position: fixed;
+    bottom: 0;
+    right: 40%;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+.formContainer {
+    max-width: 300px;
+    padding: 15px;
+    background-color: white;
+}
+
+.formContainer input[type=text], .formContainer input[type=number] {
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+.formContainer input[type=text]:focus, .formContainer input[type=number]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* The submit button */
+form button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+/* Cancel button */
+.btnCancel{
+    background-color: red;
+}
+
+/* A little visual effect */
+.formContainer .btn:hover, .btnCancel:hover ,.addBookButton:hover {
+    opacity: 1;
+  }
+
+fieldset {
+    border: none;
+}
+/* Erased the yes & no option border */
+.readOption {
+    margin-left: -10px;
+}
+
+.formContainer input[type=radio] {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
