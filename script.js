@@ -24,16 +24,30 @@ function closeForm () {
   document.getElementById('bookForm').style.display = 'none'
 }
 
-// Esta funcion toma input del user
-function getBookData () {
-  const title = window.prompt('What is the title of the book?')
-  const author = window.prompt('Who is the author of the book?')
-  const pages = window.prompt('Whats is te number of pages?')
-  const read = window.prompt('Have you read the book?')
+const bookForm = document.getElementById('test')
 
-  const book = new Book(title, author, pages, read)
-  return addBookToLibrary(book)
-}
+bookForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  const title = document.getElementsByName('title')
+  const author = document.getElementsByName('author')
+  const pages = document.getElementsByName('pages')
+  const read = document.getElementsByName('read')
+
+  if (title.values === '' || author.values === '' || pages.values === '' || read.values === '') {
+    alert('Please complete all the fields')
+  } else {
+    const book = new Book(title, author[0], pages[0], read)
+
+    addBookToLibrary(book)
+
+    alert('The book was successfully added')
+  }
+  title.values = ''
+  author.values = ''
+  pages.values = ''
+  read.values = ''
+})
 
 // Funcion para añadir un objeto nuevo al array
 function addBookToLibrary (book) {
