@@ -15,7 +15,7 @@ function Book (title, author, pages, read) {
 
 const B01 = new Book('VillaLaConchaDeTuMadre', 'Yo', '69', 'yes')
 
-// This function opens a form to add a book
+// Functions for open and closing the form
 function openForm () {
   document.getElementById('bookForm').style.display = 'block'
 }
@@ -24,28 +24,35 @@ function closeForm () {
   document.getElementById('bookForm').style.display = 'none'
 }
 
+// The form itself
 const bookForm = document.getElementById('test')
 
+// Check when the form is submitted
 bookForm.addEventListener('submit', (e) => {
   e.preventDefault()
 
-  const title = document.getElementsByName('title')
-  const author = document.getElementsByName('author')
-  const pages = document.getElementsByName('pages')
-  const read = document.getElementsByName('read')
+  // get the data from the submitted form
+  const title = document.getElementById('title')
+  const author = document.getElementById('author')
+  const pages = document.getElementById('pages')
+  const yesOption = document.getElementById('yesOption')
+  let read
 
-  if (title.values === '' || author.values === '' || pages.values === '' || read.values === '') {
-    alert('Please complete all the fields')
+  // check if the book was read
+  if (yesOption.checked === true) {
+    read = 'Yes'
   } else {
-    const book = new Book(title, author[0], pages[0], read)
-
-    addBookToLibrary(book)
-
-    alert('The book was successfully added')
+    read = 'No'
   }
-  title.values = ''
-  author.values = ''
-  pages.values = ''
+
+  // create a new book using the previus data
+  const book = new Book(title.value, author.value, pages.value, read)
+  addBookToLibrary(book)
+  alert('The book was successfully added')
+
+  title.value = ''
+  author.value = ''
+  pages.value = ''
   read.values = ''
 })
 
