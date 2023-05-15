@@ -9,39 +9,87 @@
     <title>Library</title>
 </head>
 <body>
-    <!-- New book form -->
-    <div class="bookForm" id="bookForm">
-        <form class="formContainer" id="test">
+    <div class="mainContainer">
+        <!-- The left side of the page -->
+        <div class="leftSide">
             <div>
-                <label for="title">What is the title of the book?</label>
-                <input type="text" name="title" id="title" required>
+                <!-- Contains a welcoming message -->
+                <h1>Welcome to your personal library!</h1>
             </div>
             <div>
-                <label for="author">Who is the author?</label>
-                <input type="text" name="author" id="author" required>
+                <!-- A short description -->
+                <h2>Here you can add the a book that you have read or one that 
+                    you whish to read</h2>
             </div>
             <div>
-                <label for="pages">How many pages does the book have?</label>
-                <input type="number" name="pages" id="pages" required>
-            </div>
-            <div>
-                <fieldset>
-                    <label class="readOption">Have you read the book?</label>
-                    <div>
-                        <input type="radio" name="read" id="yesOption" required>
-                        <label for="yesOption">Yes</label>
-    
-                        <input type="radio" name="read" id="noOption">
-                        <label for="noOption">No</label>
-                    </div>
-                </fieldset>
-                <button type="submit" class="btn">Submit</button>
-                <button type="button" class="btnCancel" onclick="closeForm()">Close</button>
-            </div>
-        </form>
-    </div>
+                <!-- Explains functionalities like adding a book, removing it or changing 
+                    the read status-->
+                <h3>How does it work</h3>
 
-    <!-- Button for adding a new book -->
-    <button class="addBookButton" onclick="openForm()">Add book to library</button>
-</body>
+                <p>To add a book you just have to click on the button "Add book to library</p>
+                <p>Fill out the form and submit</p>
+
+                <p>To remove a book you just need to click the "Remove" button under the desired book</p>
+                
+                <p>To change the read status, simply click on the "Read" button under the book</p>
+            </div>
+        </div>
+
+        <!-- The right side contains the current books and displays the newly added-->
+        <div class="rightSide">
+
+            <!-- The book model -->
+            <div class="cardContainer" id="cardContainer">
+                <div class="book">
+                    <!-- Info that we get with the form -->
+                    <h2 class="title">Test1</h2>
+                    <h2 class="author">Jhon Doe</h2>
+                    <h2 class="pages">87</h2>
+                    <h2 class="readStatus">Read</h2>
+                    
+                    <!-- Buttons for removing or changing the read status-->
+                    <div class="bookBtns">
+                        <button class="removeBookBtn">Remove Book</button>
+                        <button class="changeReadStatusBtn">Read</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- New book form -->
+        <div class="bookFormContainer" id="bookFormContainer">
+            <form class="bookForm" id="bookForm">
+                <div>
+                    <label for="title">What is the title of the book?</label>
+                    <input type="text" name="title" id="title" required>
+                </div>
+                <div>
+                    <label for="author">Who is the author?</label>
+                    <input type="text" name="author" id="author" required>
+                </div>
+                <div>
+                    <label for="pages">How many pages does the book have?</label>
+                    <input type="number" name="pages" id="pages" required>
+                </div>
+                <div>
+                    <fieldset>
+                        <label class="readOption">Have you read the book?</label>
+                        <div>
+                            <input type="radio" name="read" id="yesOption" required>
+                            <label for="yesOption">Yes</label>
+        
+                            <input type="radio" name="read" id="noOption">
+                            <label for="noOption">No</label>
+                        </div>
+                    </fieldset>
+                    <button type="submit" class="btn">Submit</button>
+                    <button type="button" class="btnCancel" onclick="closeForm()">Close</button>
+                </div>
+            </form>
+        </div>
+    
+        <!-- Button for adding a new book -->
+        <button class="addBookButton" onclick="openForm()">Add book to library</button>
+    </body>
+    </div>
 </html>

@@ -13,7 +13,7 @@
 }
 
 /* The form that is displayed */
-.bookForm {
+.bookFormContainer {
     display: none;  
     position: fixed;
     bottom: 0;
@@ -22,13 +22,13 @@
     z-index: 9;
 }
 
-.formContainer {
+.bookForm {
     max-width: 300px;
     padding: 15px;
     background-color: white;
 }
 
-.formContainer input[type=text], .formContainer input[type=number] {
+.bookForm input[type=text], .bookForm input[type=number] {
     width: 90%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -36,7 +36,7 @@
     background: #f1f1f1;
 }
 
-.formContainer input[type=text]:focus, .formContainer input[type=number]:focus {
+.bookForm input[type=text]:focus, .bookForm input[type=number]:focus {
     background-color: #ddd;
     outline: none;
 }
@@ -59,7 +59,7 @@ form button {
 }
 
 /* A little visual effect */
-.formContainer .btn:hover, .btnCancel:hover ,.addBookButton:hover {
+.bookFormContainer .btn:hover, .btnCancel:hover ,.addBookButton:hover {
     opacity: 1;
   }
 
@@ -71,7 +71,18 @@ fieldset {
     margin-left: -10px;
 }
 
-.formContainer input[type=radio] {
+.bookFormContainer input[type=radio] {
     margin-top: 15px;
     margin-bottom: 15px;
+}
+
+/* Right side of the page */
+/* .rightSide{
+    background: url(assets/libraryBg.jpg);
+    background-size: contain;
+} */
+
+/* Individual book */
+.book{
+    width: 250px;
 }
