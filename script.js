@@ -7,13 +7,7 @@ function Book (title, author, pages, read) {
   this.author = author
   this.pages = pages
   this.read = read
-
-  // this.info = function () {
-  //   return title + ' by ' + author + ' has ' + pages + ' pages. ' + 'It has been readed? ' + read
-  // }
 }
-
-const B01 = new Book('VillaLaConchaDeTuMadre', 'Yo', '69', 'yes')
 
 // Functions for open and closing the form
 function openForm () {
@@ -48,6 +42,7 @@ bookForm.addEventListener('submit', (e) => {
   // create a new book using the previus data
   const book = new Book(title.value, author.value, pages.value, read)
   addBookToLibrary(book)
+  addBookToDisplay()
   alert('The book was successfully added')
 
   title.value = ''
@@ -63,40 +58,27 @@ function addBookToLibrary (book) {
   return myLibrary.push(book)
 }
 
-addBookToLibrary(B01)
+function addBookToDisplay() {
+  myLibrary.forEach(arrayBook => {
+    // create the elements of each book
+    const cardContainer = document.querySelector('#cardContainer')
 
-// Function that loop through the array and displays each book
-const bookInfo = []
+    const book = document.createElement('div')
 
-function getBookInfo () {
-  myLibrary.forEach(book => {
-    bookInfo.push(book.title)
-    bookInfo.push(book.author)
-    bookInfo.push(book.pages)
-    bookInfo.push(book.read)
+    const title = document.createElement('h2')
+    const author = document.createElement('h2')
+    const pages = document.createElement('h2')
+    const read = document.createElement('h2')
 
-    return bookInfo
-  })
-}
+    const bookBtn = document.createElement('div')
 
-function getObjValue() {
-  myLibrary.forEach(aaaa => {
-    let cardContainer = document.querySelector('#cardContainer')
+    const removeBtn = document.createElement('button')
+    const statusBtn = document.createElement('button')
 
-    let book = document.createElement('div')
+    // get the value of each property of the current book
+    let info = Object.values(arrayBook)
 
-    let title = document.createElement('h2')
-    let author = document.createElement('h2')
-    let pages = document.createElement('h2')
-    let read = document.createElement('h2')
-
-    let bookBtn = document.createElement('div')
-
-    let removeBtn = document.createElement('button')
-    let statusBtn = document.createElement('button')
-
-    let info = Object.values(aaaa)
-
+    // assign the values to their corresponding element
     title.textContent = info[0]
     author.textContent = info[1]
     pages.textContent = info[2]
@@ -105,11 +87,14 @@ function getObjValue() {
     removeBtn.textContent = 'Remove Book'
     statusBtn.textContent = 'Read'
 
+    // clear the array that stores the current object
     info = []
 
-    // adit tho the DOM
+    // add the created elements to the DOM
+
     cardContainer.appendChild(book)
 
+    // individual book elements, inside the book div
     book.appendChild(title)
     book.appendChild(author)
     book.appendChild(pages)
@@ -119,10 +104,7 @@ function getObjValue() {
 
     bookBtn.appendChild(removeBtn)
     bookBtn.appendChild(statusBtn)
+
+    myLibrary.shift()
   })
 }
-// I need a function that:
-// Loops thought the array => getBookInfo()
-// Gest´s each objects properties => getBookInfo() | Object.values() 
-// Each obj has 4 properties, so if i add 3 obj the bookInfo length will be 12
-// and if i do 12/3 = 3 obj
