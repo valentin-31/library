@@ -8,9 +8,9 @@ function Book (title, author, pages, read) {
   this.pages = pages
   this.read = read
 
-  this.info = function () {
-    return title + ' by ' + author + ' has ' + pages + ' pages. ' + 'It has been readed? ' + read
-  }
+  // this.info = function () {
+  //   return title + ' by ' + author + ' has ' + pages + ' pages. ' + 'It has been readed? ' + read
+  // }
 }
 
 const B01 = new Book('VillaLaConchaDeTuMadre', 'Yo', '69', 'yes')
@@ -68,7 +68,7 @@ addBookToLibrary(B01)
 // Function that loop through the array and displays each book
 const bookInfo = []
 
-function displayBook () {
+function getBookInfo () {
   myLibrary.forEach(book => {
     bookInfo.push(book.title)
     bookInfo.push(book.author)
@@ -79,43 +79,50 @@ function displayBook () {
   })
 }
 
+function getObjValue() {
+  myLibrary.forEach(aaaa => {
+    let cardContainer = document.querySelector('#cardContainer')
+
+    let book = document.createElement('div')
+
+    let title = document.createElement('h2')
+    let author = document.createElement('h2')
+    let pages = document.createElement('h2')
+    let read = document.createElement('h2')
+
+    let bookBtn = document.createElement('div')
+
+    let removeBtn = document.createElement('button')
+    let statusBtn = document.createElement('button')
+
+    let info = Object.values(aaaa)
+
+    title.textContent = info[0]
+    author.textContent = info[1]
+    pages.textContent = info[2]
+    read.textContent = info[3]
+
+    removeBtn.textContent = 'Remove Book'
+    statusBtn.textContent = 'Read'
+
+    info = []
+
+    // adit tho the DOM
+    cardContainer.appendChild(book)
+
+    book.appendChild(title)
+    book.appendChild(author)
+    book.appendChild(pages)
+    book.appendChild(read)
+
+    cardContainer.appendChild(bookBtn)
+
+    bookBtn.appendChild(removeBtn)
+    bookBtn.appendChild(statusBtn)
+  })
+}
 // I need a function that:
-// Loops thought the array => displayBook()
-// Gest´s each objects properties => displayBook()
-// Creates the elements
-// Use the info and make the book card
-
-function createBookElements() {
-  // Create the all the elements
-  let cardContainer = document.createElement('div')
-
-  let book = document.createElement('div')
-
-  let title = document.createElement('h2')
-  let author = document.createElement('h2')
-  let pages = document.createElement('h2')
-  let read = document.createElement('h2')
-
-  let bookBtn = document.createElement('div')
-
-  let removeBtn = document.createElement('button')
-  let statusBtn = document.createElement('button')
-
-  // adit tho the DOM
-  cardContainer.appendChild(cardContainer)
-
-  book.appendChild(cardContainer)
-
-  title.appendChild(book)
-  author.appendChild(book)
-  pages.appendChild(book)
-  read.appendChild(book)
-
-  bookBtn.appendChild(cardContainer)
-
-  removeBtn.appendChild(bookBtn)
-  statusBtn.appendChild(bookBtn)
-}
-
-function createCard() {
-}
+// Loops thought the array => getBookInfo()
+// Gest´s each objects properties => getBookInfo() | Object.values() 
+// Each obj has 4 properties, so if i add 3 obj the bookInfo length will be 12
+// and if i do 12/3 = 3 obj
