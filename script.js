@@ -64,16 +64,24 @@ function addBookToDisplay() {
     const cardContainer = document.querySelector('#cardContainer')
 
     const book = document.createElement('div')
+    book.className = 'book'
 
     const title = document.createElement('h2')
+    title.className = 'title'
     const author = document.createElement('h2')
+    author.className = 'author'
     const pages = document.createElement('h2')
+    pages.className = 'pages'
     const read = document.createElement('h2')
+    read.className = 'readStatus'
 
     const bookBtn = document.createElement('div')
+    bookBtn.className = 'bookBtns'
 
-    const removeBtn = document.createElement('button')
+    const removeBookBtn = document.createElement('button')
+    removeBookBtn.className = 'removeBookBtn'
     const statusBtn = document.createElement('button')
+    statusBtn.className = 'changeReadStatusBtn'
 
     // get the value of each property of the current book
     let info = Object.values(arrayBook)
@@ -84,7 +92,8 @@ function addBookToDisplay() {
     pages.textContent = info[2]
     read.textContent = info[3]
 
-    removeBtn.textContent = 'Remove Book'
+    removeBookBtn.textContent = 'Remove Book'
+
     statusBtn.textContent = 'Read'
 
     // clear the array that stores the current object
@@ -100,11 +109,25 @@ function addBookToDisplay() {
     book.appendChild(pages)
     book.appendChild(read)
 
-    cardContainer.appendChild(bookBtn)
+    book.appendChild(bookBtn)
 
-    bookBtn.appendChild(removeBtn)
+    bookBtn.appendChild(removeBookBtn)
     bookBtn.appendChild(statusBtn)
 
     myLibrary.shift()
+  })
+}
+
+// remove book function
+
+// array to track all the remove buttons
+let removeBtns
+
+function removeBook () {
+  removeBtns = [...document.getElementsByClassName('removeBookBtn')]
+  removeBtns.forEach(btn => {
+    btn.addEventListener('click', function () {
+      btn.parentElement.parentElement.remove()
+    })
   })
 }
