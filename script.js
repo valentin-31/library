@@ -10,6 +10,7 @@ function Book (title, author, pages, read) {
 }
 
 // Functions for open and closing the form
+// eslint-disable-next-line no-unused-vars
 function openForm () {
   document.getElementById('bookFormContainer').style.display = 'block'
 }
@@ -34,9 +35,9 @@ bookForm.addEventListener('submit', (e) => {
 
   // check if the book was read
   if (yesOption.checked === true) {
-    read = 'Yes'
+    read = 'Read'
   } else {
-    read = 'No'
+    read = 'Not Read'
   }
 
   // create a new book using the previus data
@@ -50,6 +51,7 @@ bookForm.addEventListener('submit', (e) => {
   pages.value = ''
   read.values = ''
 
+  addListeners()
   closeForm()
 })
 
@@ -58,7 +60,7 @@ function addBookToLibrary (book) {
   return myLibrary.push(book)
 }
 
-function addBookToDisplay() {
+function addBookToDisplay () {
   myLibrary.forEach(arrayBook => {
     // create the elements of each book
     const cardContainer = document.querySelector('#cardContainer')
@@ -123,11 +125,17 @@ function addBookToDisplay() {
 // array to track all the remove buttons
 let removeBtns
 
-function removeBook () {
+function addListeners () {
   removeBtns = [...document.getElementsByClassName('removeBookBtn')]
   removeBtns.forEach(btn => {
-    btn.addEventListener('click', function () {
+    btn.addEventListener('click', function removeBook () {
       btn.parentElement.parentElement.remove()
     })
   })
+}
+
+// Function to change the read status
+// eslint-disable-next-line no-unused-vars
+function readStatus () {
+
 }

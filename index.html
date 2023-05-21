@@ -12,26 +12,25 @@
     <div class="mainContainer">
         <!-- The left side of the page -->
         <div class="leftSide">
-            <div>
+            <div class="title">
                 <!-- Contains a welcoming message -->
                 <h1>Welcome to your personal library!</h1>
             </div>
-            <div>
+            <div class="message">
                 <!-- A short description -->
-                <h2>Here you can add the a book that you have read or one that 
+                <h2>Here you can add a book that you have read or one that 
                     you whish to read</h2>
             </div>
-            <div>
+            <div class="tutorial">
                 <!-- Explains functionalities like adding a book, removing it or changing 
                     the read status-->
                 <h3>How does it work</h3>
 
-                <p>To add a book you just have to click on the button "Add book to library</p>
-                <p>Fill out the form and submit</p>
-
-                <p>To remove a book you just need to click the "Remove" button under the desired book</p>
-                
-                <p>To change the read status, simply click on the "Read" button under the book</p>
+                <p class="para">To add a book you just have to click on the button 
+                    "Add book to library"</p>
+                <p class="para">Fill out the form and click submit</p>
+                <p class="para">To remove a book you just need to click the "Remove" button under the desired book</p>
+                <p class="para">To change the read status, simply click on the "Read" button under the book</p>
             </div>
         </div>
 
@@ -75,11 +74,8 @@
                     <fieldset>
                         <label class="readOption">Have you read the book?</label>
                         <div>
-                            <input type="radio" name="read" id="yesOption" required>
-                            <label for="yesOption">Yes</label>
-        
-                            <input type="radio" name="read" id="noOption">
-                            <label for="noOption">No</label>
+                            <input type="radio" name="read" id="yesOption">
+                            <label for="yesOption">Yes</label>        
                         </div>
                     </fieldset>
                     <button type="submit" class="btn">Submit</button>
