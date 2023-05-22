@@ -52,6 +52,7 @@ bookForm.addEventListener('submit', (e) => {
   read.values = ''
 
   addListeners()
+  readStatus()
   closeForm()
 })
 
@@ -96,7 +97,13 @@ function addBookToDisplay () {
 
     removeBookBtn.textContent = 'Remove Book'
 
-    statusBtn.textContent = 'Read'
+    if (info[3] === 'Read') {
+      statusBtn.textContent = 'Read'
+      statusBtn.style.backgroundColor = 'green'
+    } else {
+      statusBtn.textContent = 'Not read'
+      statusBtn.style.backgroundColor = 'red'
+    }
 
     // clear the array that stores the current object
     info = []
@@ -135,7 +142,22 @@ function addListeners () {
 }
 
 // Function to change the read status
-// eslint-disable-next-line no-unused-vars
-function readStatus () {
+let statusBtns
 
+function readStatus () {
+  statusBtns = [...document.getElementsByClassName('changeReadStatusBtn')]
+  statusBtns.forEach(btn => {
+    btn.addEventListener('click', function toggleStatus () {
+      if (btn.textContent === 'Read') {
+        btn.textContent = 'Not read'
+        btn.style.backgroundColor = 'red'
+      } else {
+        btn.textContent = 'Read'
+        btn.style.backgroundColor = 'green'
+      }
+    })
+  })
 }
+
+addListeners()
+readStatus()
