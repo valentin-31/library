@@ -4,8 +4,12 @@
 }
 
 .mainContainer{
+    /* border: 2px solid blue; */
     display: grid;
     grid-template-columns: 1fr 2fr;
+
+    height: 100vh;
+    width: 100%;
 }
 
 .leftSide{
@@ -14,34 +18,62 @@
     background-color: #fef3c7;
 
     display: grid;
+    grid-template-rows: 0.2fr 0.2fr 0.5fr;
     gap: 20px;
 
-    padding: 20px;
+    padding: 10px;
 }
 
-.title{
-
+.sign{
+    border: 2px solid red;
 }
 
 .message{
-
+    border: 2px solid blue;
 }
 
 .tutorial{
+    border: 2px solid green; 
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 10px;
 }
 
 .rightSide{
-    background: url(assets/libraryBg.jpg);
-    background-size: 40%;
-    margin-left: 30px;
+    /* background: url(assets/libraryBg.jpg);
+    background-size: 40%; */
+    padding: 20px;
+}
+
+/* The container for all the books */
+.cardContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
 }
 
 /* Individual book */
 .book{
-    width: 250px;
+    padding: 10px;
+    
+    width: 200px;
+    height: 220px;
+    
+    box-shadow: 0px 3px 5px 3px #ccc;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 5px;
+}
+
+.bookBtns{
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    gap: 5px;
+}
+
+.bookBtns button{
+    height: 25px;
+    width: 200px;
 }
 
 /* FORM STYLE */
