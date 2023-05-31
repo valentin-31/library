@@ -9,9 +9,9 @@ function Book (title, author, pages, read) {
   this.read = read
 }
 
-const testBook1 = new Book('testing', 'yo', 54, 'Read')
+// const testBook1 = new Book('testing', 'yo', 54, 'Read')
 
-addBookToLibrary(testBook1)
+// addBookToLibrary(testBook1)
 
 // Functions for open and closing the form
 // eslint-disable-next-line no-unused-vars
@@ -55,7 +55,6 @@ bookForm.addEventListener('submit', (e) => {
   pages.value = ''
   read.values = ''
 
-  addListeners()
   closeForm()
 })
 
@@ -64,16 +63,19 @@ function addBookToLibrary (book) {
   return myLibrary.push(book)
 }
 
-// This function should take the myLibrary array and create the elements
-// to display in the page but NOT CHANGE THE ORIGINAL ARRAY
-
 function addBookToDisplay () {
   // create the elements of each book
   const cardContainer = document.querySelector('#cardContainer')
 
   const bookElements = myLibrary.map(arrayBook => {
+    const existingBook = document.getElementById(arrayBook.title)
+    if (existingBook) {
+      return existingBook
+    }
+
     const book = document.createElement('div')
     book.className = 'book'
+    book.id = arrayBook.title
 
     const title = document.createElement('h2')
     title.className = 'title'
@@ -135,6 +137,8 @@ function addBookToDisplay () {
   bookElements.forEach(book => {
     cardContainer.appendChild(book)
   })
+
+  addListeners()
 }
 
 // remove book function
