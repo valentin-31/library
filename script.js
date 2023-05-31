@@ -9,10 +9,6 @@ function Book (title, author, pages, read) {
   this.read = read
 }
 
-// const testBook1 = new Book('testing', 'yo', 54, 'Read')
-
-// addBookToLibrary(testBook1)
-
 // Functions for open and closing the form
 // eslint-disable-next-line no-unused-vars
 function openForm () {
@@ -50,19 +46,21 @@ bookForm.addEventListener('submit', (e) => {
   addBookToDisplay()
   alert('The book was successfully added')
 
-  title.value = ''
-  author.value = ''
-  pages.value = ''
-  read.values = ''
+  // Clear the form inputs
+  document.getElementById('title').value = ''
+  document.getElementById('author').value = ''
+  document.getElementById('pages').value = ''
+  document.getElementById('yesOption').checked = false
 
   closeForm()
 })
 
-// Funcion para añadir un objeto nuevo al array
+// Function for adding the book obj to the myLibrary array
 function addBookToLibrary (book) {
   return myLibrary.push(book)
 }
 
+// Function for displaying the previously added elements
 function addBookToDisplay () {
   // create the elements of each book
   const cardContainer = document.querySelector('#cardContainer')
@@ -104,12 +102,10 @@ function addBookToDisplay () {
       if (book.read === 'Read') {
         book.read = 'Not Read'
         statusBtn.style.backgroundColor = 'red'
-        statusBtn.textContent = 'Not read'
         read.textContent = 'Not read'
       } else {
         book.read = 'Read'
         statusBtn.style.backgroundColor = 'green'
-        statusBtn.textContent = 'Read'
         read.textContent = 'Read'
       }
 
