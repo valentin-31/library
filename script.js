@@ -9,6 +9,10 @@ function Book (title, author, pages, read) {
   this.read = read
 }
 
+const testBook1 = new Book('testing', 'yo', 54, 'Read')
+
+addBookToLibrary(testBook1)
+
 // Functions for open and closing the form
 // eslint-disable-next-line no-unused-vars
 function openForm () {
@@ -40,7 +44,7 @@ bookForm.addEventListener('submit', (e) => {
     read = 'Not Read'
   }
 
-  // create a new book using the previus data
+  // create a new book using the previous data, NEEDS A NAMING VALUE
   const book = new Book(title.value, author.value, pages.value, read)
   addBookToLibrary(book)
   addBookToDisplay()
@@ -52,7 +56,6 @@ bookForm.addEventListener('submit', (e) => {
   read.values = ''
 
   addListeners()
-  readStatus()
   closeForm()
 })
 
@@ -61,11 +64,14 @@ function addBookToLibrary (book) {
   return myLibrary.push(book)
 }
 
-function addBookToDisplay () {
-  myLibrary.forEach(arrayBook => {
-    // create the elements of each book
-    const cardContainer = document.querySelector('#cardContainer')
+// This function should take the myLibrary array and create the elements
+// to display in the page but NOT CHANGE THE ORIGINAL ARRAY
 
+function addBookToDisplay () {
+  // create the elements of each book
+  const cardContainer = document.querySelector('#cardContainer')
+
+  const bookElements = myLibrary.map(arrayBook => {
     const book = document.createElement('div')
     book.className = 'book'
 
@@ -123,7 +129,11 @@ function addBookToDisplay () {
     bookBtn.appendChild(removeBookBtn)
     bookBtn.appendChild(statusBtn)
 
-    myLibrary.shift()
+    return book
+  })
+
+  bookElements.forEach(book => {
+    cardContainer.appendChild(book)
   })
 }
 
@@ -140,24 +150,3 @@ function addListeners () {
     })
   })
 }
-
-// Function to change the read status
-let statusBtns
-
-function readStatus () {
-  statusBtns = [...document.getElementsByClassName('changeReadStatusBtn')]
-  statusBtns.forEach(btn => {
-    btn.addEventListener('click', function toggleStatus () {
-      if (btn.textContent === 'Read') {
-        btn.textContent = 'Not read'
-        btn.style.backgroundColor = 'red'
-      } else {
-        btn.textContent = 'Read'
-        btn.style.backgroundColor = 'green'
-      }
-    })
-  })
-}
-
-addListeners()
-readStatus()
