@@ -94,6 +94,29 @@ function addBookToDisplay () {
     const statusBtn = document.createElement('button')
     statusBtn.className = 'changeReadStatusBtn'
 
+    // Change the status of the book
+
+    statusBtn.addEventListener('click', function () {
+      const index = myLibrary.indexOf(arrayBook)
+      const book = myLibrary[index]
+
+      // Toggle the read status
+      if (book.read === 'Read') {
+        book.read = 'Not Read'
+        statusBtn.style.backgroundColor = 'red'
+        statusBtn.textContent = 'Not read'
+        read.textContent = 'Not read'
+      } else {
+        book.read = 'Read'
+        statusBtn.style.backgroundColor = 'green'
+        statusBtn.textContent = 'Read'
+        read.textContent = 'Read'
+      }
+
+      // Update the display
+      addBookToDisplay()
+    })
+
     // get the value of each property of the current book
     let info = Object.values(arrayBook)
 
@@ -141,7 +164,7 @@ function addBookToDisplay () {
   addListeners()
 }
 
-// remove book function
+// Remove book function
 
 // array to track all the remove buttons
 let removeBtns
