@@ -1,5 +1,5 @@
 // Array que tiene todos los objetos, los "book"
-const myLibrary = []
+let myLibrary = []
 
 // Constructor que hace los obejtos propiamente dichos, los "book"
 function Book (title, author, pages, read) {
@@ -157,18 +157,21 @@ function addBookToDisplay () {
     cardContainer.appendChild(book)
   })
 
-  addListeners()
+  addRemoveListeners()
 }
 
-// Remove book function
-
-// array to track all the remove buttons
+// Function for removing a book
 let removeBtns
 
-function addListeners () {
+function addRemoveListeners () {
   removeBtns = [...document.getElementsByClassName('removeBookBtn')]
   removeBtns.forEach(btn => {
     btn.addEventListener('click', function removeBook () {
+      // get the id of the book
+      const bookId = btn.parentElement.parentElement.id
+      // remove that element from the library
+      myLibrary = myLibrary.filter(book => book.title !== bookId)
+      // remove the book from the dom
       btn.parentElement.parentElement.remove()
     })
   })
