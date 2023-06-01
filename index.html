@@ -36,7 +36,26 @@
 
         <!-- The right side contains the current books and displays the newly added-->
         <div class="rightSide">
-            <div class="cardContainer" id="cardContainer"></div>
+
+            <!-- The book model -->
+            <div class="cardContainer" id="cardContainer">
+                <div class="book">
+                    <!-- Info that we get with the form -->
+                    <h2 class="title">Test1</h2>
+                    <h2 class="author">Jhon Doe</h2>
+                    <h2 class="pages">87</h2>
+                    <h2 class="readStatus">Read</h2>
+                    
+                    <!-- Buttons for removing or changing the read status-->
+                    <div class="bookBtns">
+                        <button class="removeBookBtn">Remove Book</button>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
         </div>
     
         <!-- New book form -->

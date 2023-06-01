@@ -89,8 +89,14 @@ function addBookToDisplay () {
 
     const removeBookBtn = document.createElement('button')
     removeBookBtn.className = 'removeBookBtn'
-    const statusBtn = document.createElement('button')
-    statusBtn.className = 'changeReadStatusBtn'
+
+    // The slider button
+    const switchBtn = document.createElement('label')
+    switchBtn.className = 'switch'
+    const statusBtn = document.createElement('input')
+    statusBtn.type = 'checkbox'
+    const slider = document.createElement('span')
+    slider.className = 'slider round'
 
     // Change the status of the book
 
@@ -148,7 +154,9 @@ function addBookToDisplay () {
     book.appendChild(bookBtn)
 
     bookBtn.appendChild(removeBookBtn)
-    bookBtn.appendChild(statusBtn)
+    bookBtn.appendChild(switchBtn)
+    switchBtn.appendChild(statusBtn)
+    switchBtn.appendChild(slider)
 
     return book
   })
