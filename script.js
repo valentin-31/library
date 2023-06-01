@@ -19,6 +19,29 @@ function closeForm () {
   document.getElementById('bookFormContainer').style.display = 'none'
 }
 
+// Function to generate a random color
+function getRandomNumber () {
+  return Math.floor(Math.random() * 20) + 1
+}
+
+// Function to create a color for the book
+function getRandomColor () {
+  let number = getRandomNumber()
+  let color
+
+  if (number >= 1 && number <= 5) {
+    color = 'linear-gradient(120deg, #BC1616 50%, #E52020 50%)'
+  } else if (number >= 6 && number <= 10) {
+    color = 'linear-gradient(120deg, #758D11 50%, #5E730D 50%)'
+  } else if (number >= 11 && number <= 15) {
+    color = 'linear-gradient(120deg, #315a8e 50%, #284e7a 50%)'
+  } else {
+    color = 'linear-gradient(120deg, #A99B06 50%, #887E07 50%)'
+  }
+
+  return color
+}
+
 // The form itself
 const bookForm = document.getElementById('bookFormContainer')
 
@@ -132,8 +155,8 @@ function addBookToDisplay () {
 
     removeBookBtn.textContent = 'Remove Book'
 
+    statusBtn.textContent = 'Read'
     if (info[3] === 'Read') {
-      statusBtn.textContent = 'Read'
       statusBtn.checked = true
       statusBtn.style.backgroundColor = 'green'
     } else {
@@ -141,6 +164,9 @@ function addBookToDisplay () {
       statusBtn.checked = false
       statusBtn.style.backgroundColor = 'red'
     }
+
+    const color = getRandomColor()
+    book.style.background = color
 
     // clear the array that stores the current object
     info = []

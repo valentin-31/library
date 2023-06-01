@@ -70,7 +70,7 @@
 
 /* Individual book */
 .book{
-    background: linear-gradient(120deg, #BC1616 50%, #E52020 50%);
+    /* background: linear-gradient(120deg, #BC1616 50%, #E52020 50%); */
     border: 3px solid black;
     color: white;
 
