@@ -108,10 +108,12 @@ function addBookToDisplay () {
       if (book.read === 'Read') {
         book.read = 'Not Read'
         statusBtn.style.backgroundColor = 'red'
+        statusBtn.checked = false
         read.textContent = 'Not read'
       } else {
         book.read = 'Read'
         statusBtn.style.backgroundColor = 'green'
+        statusBtn.checked = true
         read.textContent = 'Read'
       }
 
@@ -132,9 +134,11 @@ function addBookToDisplay () {
 
     if (info[3] === 'Read') {
       statusBtn.textContent = 'Read'
+      statusBtn.checked = true
       statusBtn.style.backgroundColor = 'green'
     } else {
       statusBtn.textContent = 'Not read'
+      statusBtn.checked = false
       statusBtn.style.backgroundColor = 'red'
     }
 
