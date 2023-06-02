@@ -30,32 +30,13 @@
                     "Add book to library"</p>
                 <p class="para">Fill out the form and click submit</p>
                 <p class="para">To remove a book you just need to click the "Remove" button under the desired book</p>
-                <p class="para">To change the read status, simply click on the "Read" button under the book</p>
+                <p class="para">To change the read status, simply click on the slider button under the book</p>
             </div>
         </div>
 
         <!-- The right side contains the current books and displays the newly added-->
         <div class="rightSide">
-
-            <!-- The book model -->
-            <div class="cardContainer" id="cardContainer">
-                <div class="book">
-                    <!-- Info that we get with the form -->
-                    <h2 class="title">Test1</h2>
-                    <h2 class="author">Jhon Doe</h2>
-                    <h2 class="pages">87</h2>
-                    <h2 class="readStatus">Read</h2>
-                    
-                    <!-- Buttons for removing or changing the read status-->
-                    <div class="bookBtns">
-                        <button class="removeBookBtn">Remove Book</button>
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
+            <div class="cardContainer" id="cardContainer"></div>
         </div>
     
         <!-- New book form -->
@@ -89,6 +70,13 @@
     
         <!-- Button for adding a new book -->
         <button class="addBookButton" onclick="openForm()">Add book to library</button>
-    </body>
+
+        <footer class="footer">
+            <p>Copyright © 2023 valentin-31</p>
+            <a href="https://github.com/valentin-31/library">
+                <img src="assets/github-mark/github-mark/github-mark-white.svg" alt="" class="githubLogo">
+            </a>
+        </footer>
     </div>
+    </body>
 </html>

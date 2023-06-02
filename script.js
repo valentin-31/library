@@ -26,7 +26,7 @@ function getRandomNumber () {
 
 // Function to create a color for the book
 function getRandomColor () {
-  let number = getRandomNumber()
+  const number = getRandomNumber()
   let color
 
   if (number >= 1 && number <= 5) {
