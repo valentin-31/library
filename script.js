@@ -214,3 +214,16 @@ function addRemoveListeners () {
     })
   })
 }
+
+// Test books to display in the page
+const testBook1 = new Book('Test1', 'Me', '65', 'Read')
+const testBook2 = new Book('Test2', 'also Me', '61', 'Not read')
+const testBook3 = new Book('Test3', 'Not me', '126', 'Not read')
+
+addBookToLibrary(testBook1)
+addBookToLibrary(testBook2)
+addBookToLibrary(testBook3)
+
+addBookToDisplay(testBook1)
+addBookToDisplay(testBook2)
+addBookToDisplay(testBook3)
