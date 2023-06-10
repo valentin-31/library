@@ -24,7 +24,6 @@ body {
 }
 
 .mainContainer {
-    /* border: 2px solid blue; */
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr auto;
@@ -59,7 +58,7 @@ body {
 
 .rightSide {
     background: url(assets/libraryBg.jpg);
-    background-size: 45%; 
+    background-size: 45vh; 
     padding: 20px;
     background-color: #facc15;
 }
